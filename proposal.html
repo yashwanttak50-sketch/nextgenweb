@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Proposal - NextGenWeb</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="proposal-page">
+    <!-- Back Navigation -->
+    <div class="proposal-nav">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <div class="proposal-container">
+        <div class="proposal-header">
+            <h1 id="proposal-title">Website Proposal</h1>
+            <p id="proposal-subtitle">Premium Website Package by NextGenWeb</p>
+        </div>
+
+        <!-- PDF Viewer Placeholder -->
+        <div class="pdf-viewer">
+            <iframe id="pdf-frame" src="Universal_Business_Proposal_EN_v2.pdf" style="width:100%; height:700px; border:none;"></iframe>
+            <div class="pdf-placeholder">
+                <i class="fas fa-file-pdf" style="font-size: 6rem; color: var(--neon-blue); margin-bottom: 2rem;"></i>
+                <h2>Professional Proposal PDF</h2>
+                <p>Detailed pricing, features, timeline, and deliverables</p>
+                <a href="Universal_Business_Proposal_EN_v2.pdf" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+        </div>
+
+        <div class="proposal-cta">
+            <a href="https://wa.me/919057516002?text=Hi!%20I%20want%20to%20discuss%20the%20[PROPOSAL]%20proposal" 
+               class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Discuss This Proposal on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Get proposal type from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const proposalType = urlParams.get('type') || 'business';
+        
+        const titles = {
+            business: 'Universal Business Proposal',
+            school: 'School Website Proposal',
+            salon: 'Salon Website Proposal',
+            restaurant: 'Restaurant Website Proposal'
+        };
+        
+        const subtitles = {
+            business: 'Complete business website with premium UI/UX',
+            school: 'School management system with student portal',
+            salon: 'Beauty salon with online booking system',
+            restaurant: 'Restaurant website with online ordering'
+        };
+        
+        document.getElementById('proposal-title').textContent = titles[proposalType] || titles.business;
+        document.getElementById('proposal-subtitle').textContent = subtitles[proposalType] || subtitles.business;
+        
+        // Set WhatsApp message
+        const whatsappBtn = document.querySelector('.whatsapp-btn');
+        whatsappBtn.href = whatsappBtn.href.replace('[PROPOSAL]', proposalType.charAt(0).toUpperCase() + proposalType.slice(1));
+        
+        // PDF handling (replace with actual PDF URLs)
+        const pdfUrls = {
+            business: 'data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsO...',
+            school: 'data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsO...',
+            salon: 'data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsO...',
+            restaurant: 'data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsO...'
+        };
+        
+        // For demo, show placeholder
+        console.log(`Loading proposal for: ${proposalType}`);
+    </script>
+</body>
+</html>
